@@ -97,8 +97,8 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 			
 		}else {
 			
-			JButton btn = createBtn();
-			contentPane.add(btn, 0);
+			btn1 = createBtn();
+			contentPane.add(btn1, 0);
 			revalidate();
 		}
 			
