@@ -1,0 +1,71 @@
+package swing_study.layout;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class FrameLayout extends JFrame {
+
+	private JPanel contentPane;
+	
+	private LayoutGuBun gubun;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FrameLayout frame = new FrameLayout(LayoutGuBun.FLOW);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+
+
+
+	public FrameLayout(LayoutGuBun gubun) {
+		this.gubun = gubun;
+		initialize();
+	}
+	private void initialize() {
+		setTitle("레이아웃 종료");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 200, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JPanel panelSwitch = null;
+		switch(gubun) {
+		case FLOW :
+			panelSwitch = new PanelFlow();
+			setTitle("플로우 레이아웃");
+			break;
+		case BORDER:
+			panelSwitch = new PanelBorder();
+			setTitle("보더 레이아웃");
+			break;
+		case GRID:
+			panelSwitch = new PanelGrid();
+			setTitle("그리드 레이아웃");
+			break;
+		case ABSOLUTE:
+			panelSwitch = new PanelAbsolute();
+			setTitle("앱솔루트 레이아웃");
+			break;
+			
+		}
+		
+		contentPane.add(panelSwitch, BorderLayout.CENTER);
+		
+//		setVisible(true);
+	}
+
+}
