@@ -21,7 +21,7 @@ public class JLableEx extends JFrame implements MouseListener {
 	private JLabel lblTop;
 	private JLabel lblMid;
 	private JLabel lblBottom;
-	private String path = System.getProperty("user.dir" + File.separator + "images" + File.separator);
+	private String path = System.getProperty("user.dir") + File.separator + ("images") + File.separator;
 	
 	
 	public JLableEx() {
