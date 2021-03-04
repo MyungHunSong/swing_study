@@ -11,6 +11,7 @@ import swing_study.component.FrameComponentEx;
 import swing_study.component.Fruit;
 import swing_study.component.JButtonEx;
 import swing_study.component.JLableEx;
+import swing_study.component.JRadioButtonEx;
 import swing_study.component.JcheckBoxCustom;
 import swing_study.component.JcheckBoxEx;
 import swing_study.layout.FrameLayout;
@@ -132,10 +133,14 @@ public class SwingMain extends JFrame implements ActionListener {
 		pCheck.add(btn06);
 		
 		btnNewButton_1 = new JButton("래디오버튼예");
+		btnNewButton_1.addActionListener(this);
 		pCheck.add(btnNewButton_1);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnNewButton_1) {
+			actionPerformedBtnNewButton_1(e);
+		}
 		if (e.getSource() == btn06) {
 			actionPerformedBtnNewButton(e);
 		}
@@ -240,5 +245,9 @@ public class SwingMain extends JFrame implements ActionListener {
 		
 		JcheckBoxCustom frame1 = new JcheckBoxCustom(list);
 		frame1.setVisible(true);
+	}
+	protected void actionPerformedBtnNewButton_1(ActionEvent e) {
+		JRadioButtonEx frame = new JRadioButtonEx();
+		frame.setVisible(true);
 	}
 }
