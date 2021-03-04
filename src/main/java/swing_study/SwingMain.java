@@ -8,8 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import swing_study.component.FrameComponentEx;
+import swing_study.component.Fruit;
 import swing_study.component.JButtonEx;
 import swing_study.component.JLableEx;
+import swing_study.component.JcheckBoxCustom;
+import swing_study.component.JcheckBoxEx;
 import swing_study.layout.FrameLayout;
 import swing_study.layout.LayoutGuBun;
 import swing_study.uiframe.ContentPaneEx;
@@ -18,6 +21,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
@@ -41,6 +45,8 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btn04;
 	private JButton btn05;
 	private JPanel pCheck;
+	private JButton btn06;
+	private JButton btnNewButton_1;
 
 	
 	public static void main(String[] args) {
@@ -119,10 +125,20 @@ public class SwingMain extends JFrame implements ActionListener {
 		pCheck = new JPanel();
 		pCheck.setBorder(new TitledBorder(null, "JCheckBox&JRadioButton", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pCheck);
-		pCheck.setLayout(new BorderLayout(0, 0));
+		pCheck.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		btn06 = new JButton("체크박스 예제");
+		btn06.addActionListener(this);
+		pCheck.add(btn06);
+		
+		btnNewButton_1 = new JButton("래디오버튼예");
+		pCheck.add(btnNewButton_1);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn06) {
+			actionPerformedBtnNewButton(e);
+		}
 		if (e.getSource() == btn05) {
 			actionPerformedBtn05(e);
 		}
@@ -155,36 +171,74 @@ public class SwingMain extends JFrame implements ActionListener {
 		ContentPaneEx frame = new ContentPaneEx();
 		frame.setVisible(true);
 	}
+	
+	
 	protected void actionPerformedBtn2(ActionEvent e) {
 		JpanerEx frame = new JpanerEx();
 		frame.setVisible(true);
 	}
+	
+	
+	
 	protected void actionPerformedBtnFlowLayOut(ActionEvent e) {
 		FrameLayout frame = new FrameLayout(LayoutGuBun.FLOW);
 		frame.setVisible(true);
 	}
+	
+	
+	
 	protected void actionPerformedBtnBorderLayOut(ActionEvent e) {
 		FrameLayout frame = new FrameLayout(LayoutGuBun.BORDER);
 		frame.setVisible(true);
 	}
+	
+	
+	
 	protected void actionPerformedBtnGridLayOut(ActionEvent e) {
 		FrameLayout frame = new FrameLayout(LayoutGuBun.GRID);
 		frame.setVisible(true);
 	}
+	
+	
 	protected void actionPerformedBtnAbsoluteLayout(ActionEvent e) {
 		FrameLayout frame = new FrameLayout(LayoutGuBun.ABSOLUTE);
 		frame.setVisible(true);
 	}
+	
+	
+	//Btn03
 	protected void actionPerformedBtn03(ActionEvent e) {
 		FrameComponentEx frame = new FrameComponentEx();
 		frame.setVisible(true);
 	}
+	
+	
+	//Btn04
 	protected void actionPerformedBtn04(ActionEvent e) {
 		JLableEx frame = new JLableEx();
 		frame.setVisible(true);
 	}
+	
+	
+	// Btn05
 	protected void actionPerformedBtn05(ActionEvent e) {
 		JButtonEx frame = new JButtonEx();
 		frame.setVisible(true);
+	}
+	
+	
+	// actionPerformedBtnNewButton
+	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		JcheckBoxEx frame = new JcheckBoxEx();
+		frame.setVisible(true);
+		
+		ArrayList<Fruit> list = new ArrayList<Fruit>();
+		list.add(new Fruit("사과", 100));
+		list.add(new Fruit("배", 500));
+		list.add(new Fruit("체리", 20000));
+		list.add(new Fruit("바나나", 1000));
+		
+		JcheckBoxCustom frame1 = new JcheckBoxCustom(list);
+		frame1.setVisible(true);
 	}
 }
