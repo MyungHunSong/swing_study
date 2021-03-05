@@ -11,6 +11,7 @@ public class DeptPanel extends JPanel {
 	private JTextField tfDeptNo;
 	private JTextField tfDeptName;
 	private JTextField tfFloor;
+	
 // jpanel은 기본적으로 플로우 레이아웃 이다
 	
 	public DeptPanel() {
@@ -33,6 +34,12 @@ public class DeptPanel extends JPanel {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	public void clearTf() {
 //		밑애꺼랑 의미가 같다	tfDeptNo.setText(String.valueOf(department.getDeptNo()));
 			tfDeptNo.setText("");
@@ -40,8 +47,6 @@ public class DeptPanel extends JPanel {
 			tfFloor.setText("");
 		}
 		
-	
-	
 	
 	
 	
