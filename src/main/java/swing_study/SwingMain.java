@@ -10,6 +10,9 @@ import javax.swing.border.EmptyBorder;
 import swing_study.component.FrameComponentEx;
 import swing_study.component.Fruit;
 import swing_study.component.JButtonEx;
+import swing_study.component.JComBoBoxEx1;
+import swing_study.component.JComBoBoxEx2;
+import swing_study.component.JComBoBoxEx3;
 import swing_study.component.JLableEx;
 import swing_study.component.JListEx;
 import swing_study.component.JListEx2;
@@ -58,6 +61,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btn09;
 	private JButton btn11;
 	private JButton btn10;
+	private JPanel pCombo;
+	private JButton btn12;
+	private JButton btn13;
+	private JButton btn14;
 
 	
 	public static void main(String[] args) {
@@ -170,9 +177,35 @@ public class SwingMain extends JFrame implements ActionListener {
 		btn11 = new JButton("JList3");
 		btn11.addActionListener(this);
 		pList.add(btn11);
+		
+		pCombo = new JPanel();
+		pCombo.setBorder(new TitledBorder(null, "J\uCF64\uBCF4", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pCombo);
+		pCombo.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		btn12 = new JButton("Jcombobox예1");
+		btn12.addActionListener(this);
+		pCombo.add(btn12);
+		
+		btn13 = new JButton("Jcombobox예2");
+		btn13.addActionListener(this);
+		pCombo.add(btn13);
+		
+		btn14 = new JButton("Jcombobox예3");
+		btn14.addActionListener(this);
+		pCombo.add(btn14);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn14) {
+			actionPerformedBtn14(e);
+		}
+		if (e.getSource() == btn13) {
+			actionPerformedBtn13(e);
+		}
+		if (e.getSource() == btn12) {
+			actionPerformedBtn12(e);
+		}
 		if (e.getSource() == btn11) {
 			actionPerformedBtn11(e);
 		}
@@ -322,6 +355,21 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn11(ActionEvent e) {
 		JListEx3 frame = new JListEx3();
+		frame.setVisible(true);
+	}
+	// ComBoBox ex1
+	protected void actionPerformedBtn12(ActionEvent e) {
+		JComBoBoxEx1 frame = new JComBoBoxEx1();
+		frame.setVisible(true);
+	}
+	// ComBoBox ex2
+	protected void actionPerformedBtn13(ActionEvent e) {
+		JComBoBoxEx2 frame = new JComBoBoxEx2();
+		frame.setVisible(true);
+	}
+	// ComBoBox ex3
+	protected void actionPerformedBtn14(ActionEvent e) {
+		JComBoBoxEx3 frame = new JComBoBoxEx3();
 		frame.setVisible(true);
 	}
 }

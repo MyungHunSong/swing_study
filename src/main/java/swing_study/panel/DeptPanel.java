@@ -20,8 +20,8 @@ public class DeptPanel extends JPanel {
 	}
 	
 	public Department getDepartment() {
-		int deptNo = Integer.parseInt(tfDeptNo.getText().trim());
-		String deptName = tfDeptName.getText().trim();
+		int deptNo = Integer.parseInt(tfDeptNo.getText().trim());  // parseInt  set와 비슷한 개념 정수로 뺴돌라 라는 말
+		String deptName = tfDeptName.getText().trim(); //trim() 공백 제거
 		int floor = Integer.parseInt(tfFloor.getText().trim());
 		return new Department(deptNo, deptName, floor);
 		

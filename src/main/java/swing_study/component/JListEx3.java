@@ -30,13 +30,16 @@ import javax.swing.ListSelectionModel;
 public class JListEx3 extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JButton btn1;
 	private DeptPanel pLeftCenter;
 	private JList<Department> deptList;
 	private DefaultListModel<Department> model;
 	private JPanel panel;
-	private DeptPanel pRight;
+	private JPanel pRight;
 	
+	
+	
+	
+	private JButton btn1;
 	private JButton btn4;
 	private JButton btn2;
 	private JButton btn3;
@@ -71,11 +74,9 @@ public class JListEx3 extends JFrame implements ActionListener {
 		JPanel pLeftSouth = new JPanel();
 		pLeft.add(pLeftSouth, BorderLayout.SOUTH);
 		
-		btn1 = new JButton("추가");
-		btn1.addActionListener(this);
-		pLeftSouth.add(btn1);
 		
-		pRight = new DeptPanel();
+		
+		pRight = new JPanel();
 		pRight.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\uBD80\uC11C\uBAA9\uB85D", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		contentPane.add(pRight);
 		pRight.setLayout(new BorderLayout(0, 0));
@@ -92,6 +93,11 @@ public class JListEx3 extends JFrame implements ActionListener {
 		panel = new JPanel();
 		pRight.add(panel, BorderLayout.SOUTH);
 		
+		// BTN집합소
+		btn1 = new JButton("추가");
+		btn1.addActionListener(this);
+		pLeftSouth.add(btn1);
+		
 		btn2 = new JButton("확인");
 		btn2.addActionListener(this);
 		panel.add(btn2);
@@ -106,31 +112,37 @@ public class JListEx3 extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn4) {
-			actionPerformedBtn4(e);
-		}
 		if (e.getSource() == btn3) {
 			actionPerformedBtn3(e);
 		}
+
+		if (e.getSource() == btn4) {
+			actionPerformedBtn4(e);
+		}
+
 		if (e.getSource() == btn2) {
 			actionPerformedBtn2(e);
 		}
 		if (e.getSource() == btn1) {
+			if(btn1.getText().equals("추가")) { //여기서 btn1.getText().equals("추가")비교해준다
 			actionPerformedBtn1(e);
-		}else 
-			actionPerformedUpdateBtn1(e);
+			}else {
+				actionPerformedUpdateBtn1(e);
+			}
+		}
+			
 		
 		
 	}
+	
+// UpdateBtn1	
 	private void actionPerformedUpdateBtn1(ActionEvent e) {
+		System.out.println(123);
 		Department updateDept = pLeftCenter.getDepartment();
 		int idx = deptList.getSelectedIndex();
 		model.set(idx, updateDept);
-		pLeftCenter.clearTf();
+//		pLeftCenter.clearTf();
 		
-		if(btn1.getText().equals("수정")) {
-			btn1.setText("추가");
-		}
 	}
 	protected void actionPerformedBtn1(ActionEvent e) {
 		Department dept = pLeftCenter.getDepartment();
@@ -138,8 +150,6 @@ public class JListEx3 extends JFrame implements ActionListener {
 		model.addElement(dept);
 		JOptionPane.showMessageDialog(null, "추가 되엇습니다.");
 		
-		
-	
 		
 	}
 	
@@ -155,17 +165,23 @@ public class JListEx3 extends JFrame implements ActionListener {
 	}
 	
 	
-	protected void actionPerformedBtn3(ActionEvent e) {
-		Department dept = deptList.getSelectedValue();
-		pLeftCenter.setDepartment(dept); // set으로 가져오면 돼는거
-		
-		btn1.setText("수정");
-	}
+//	protected void actionPerformedBtn3(ActionEvent e) {
+//		Department dept = deptList.getSelectedValue();
+//		pLeftCenter.setDepartment(dept); // set으로 가져오면 돼는거
+//		
+//		btn1.setText("수정");
+//	}
 	protected void actionPerformedBtn4(ActionEvent e) {
 		int idx = deptList.getSelectedIndex();
 	 	model.remove(idx);
 	
 			
 		
+	}
+	
+	protected void actionPerformedBtn3(ActionEvent e) {
+		Department dept = deptList.getSelectedValue();
+		pLeftCenter.setDepartment(dept);
+		btn1.setText("수정");
 	}
 }

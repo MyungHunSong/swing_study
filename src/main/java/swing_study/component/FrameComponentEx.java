@@ -90,7 +90,7 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn2(ActionEvent e) {
 		if(btn1 != null) {
-			contentPane.remove(btn1); // 콘텐ㅌ퉅투퉅트ㅡ 페인에 있는 btn1 
+			contentPane.remove(btn1); // contentpane 있는 btn1 
 			btn1 = null;
 			revalidate(); // 삭제됫을시 새로 그려야 됄꺼 아닌가? 변경된 내용으로 교체 해줘야 하니까 이걸 쓰는 거다
 			
