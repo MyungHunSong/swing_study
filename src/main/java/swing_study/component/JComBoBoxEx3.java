@@ -38,12 +38,15 @@ public class JComBoBoxEx3 extends JFrame implements ActionListener {
 	
 	
 	public JComBoBoxEx3() {
-		
+		deptList = new ArrayList<Department>();
 		deptList.add(new Department(1, "기획", 8));
 		deptList.add(new Department(2, "영업", 18));
 		deptList.add(new Department(3, "개발", 28));
 		
 		initialize();
+		
+		cmbDept.setModel(new DefaultComboBoxModel<Department>(new Vector(deptList)));
+		cmbDept.setSelectedIndex(-1);
 	}
 	
 	
@@ -74,9 +77,7 @@ public class JComBoBoxEx3 extends JFrame implements ActionListener {
 		contentPane.add(pRight);
 		pRight.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		cmbDept = new JComboBox<Department>(new Vector<>(deptList));
-		//model = new DefaultComboBoxModel<Department>();
-		//cmbDept.setModel(model);
+		cmbDept = new JComboBox<>();
 		pRight.add(cmbDept);
 		
 		btnOk = new JButton("확인");
@@ -93,8 +94,7 @@ public class JComBoBoxEx3 extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnAdd(ActionEvent e) {
-		System.out.println("123");
-		System.out.println(pDept.getDepartment());
+		
 		Department addDept = pDept.getDepartment();
 		
 		if(deptList.contains(addDept)) {
@@ -103,14 +103,21 @@ public class JComBoBoxEx3 extends JFrame implements ActionListener {
 		}
 		
 		
-		cmbDept.addItem(addDept);
-		JOptionPane.showMessageDialog(null, "추가됨");
+		DefaultComboBoxModel<Department> model = (DefaultComboBoxModel<Department>) cmbDept.getModel(); 
+		model.addElement(addDept);
 		
-		
-		
-		
+		pDept.clearTf();
+		JOptionPane.showMessageDialog(null, "추가함 ");
 	}
 	protected void actionPerformedBtnOk(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "111");
+		Department selDept = (Department) cmbDept.getSelectedItem();
+		try{
+			String msg = String.format("%s %s %s%n", selDept.getDeptNo(), selDept.getDeptName(), selDept.getFloor());
+			JOptionPane.showMessageDialog(null, msg);
+		}catch(Exception f) {
+			
+		}
+		
+		
 	}
 }

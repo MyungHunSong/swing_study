@@ -173,10 +173,7 @@ public class JListEx3 extends JFrame implements ActionListener {
 //	}
 	protected void actionPerformedBtn4(ActionEvent e) {
 		int idx = deptList.getSelectedIndex();
-	 	model.remove(idx);
-	
-			
-		
+	 	model.remove(idx);	
 	}
 	
 	protected void actionPerformedBtn3(ActionEvent e) {
