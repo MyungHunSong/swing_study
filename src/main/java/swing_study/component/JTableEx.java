@@ -19,21 +19,28 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import swing_study.component.table.MyTablePanel;
 import swing_study.component.table.Student;
+import swing_study.panel.BookInfo;
+import swing_study.panel.BookKind;
 import swing_study.panel.Department;
 import swing_study.panel.Employee;
 import swing_study.panel.Title;
 import swing_study.component.table.DeptTablePanel;
 import swing_study.component.table.abs.TitleTablePanel;
 import swing_study.component.table.abs.EmpTablePanel;
+import swing_study.component.table.abs.BookTablePanel;
 
 public class JTableEx extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel pTable1;
 	private JPanel pTable2;
-	private JPanel pTable4;
-	private JTable table1;
 	private JPanel pTable3;
+	private JPanel pTable4;
+	private JPanel pTable5;
+	private JPanel pTable6;
+	
+	private JTable table1;
+
 	private MyTablePanel pCustomTable2;
 	private DeptTablePanel pDeptTable3;
 	
@@ -41,13 +48,15 @@ public class JTableEx extends JFrame {
 	private List<Department> deptList = new ArrayList<>();
 	private List<Title> titleList = new ArrayList<Title>();
 	private List<Employee> empList = new ArrayList<Employee>();
+	private List<BookInfo> bookList = new ArrayList<BookInfo>();
 	
+	//
 	private DeptTablePanel pDeptPanel3;
 	private TitleTablePanel pTitlePanel4;
-	
-	private JPanel pTable5;
-	private JPanel pTable6;
 	private EmpTablePanel pEmpTable5;
+	private BookTablePanel pBookTable6;
+	//
+	
 	
 	
 	// Employee(int empNo, String empName, Title title, Employee manager, int salary, Department dept)
@@ -69,6 +78,9 @@ public class JTableEx extends JFrame {
 		empList.add(new Employee(2, "이태훈", titleList.get(1), new Employee(1, "신사숙녀"), 3500000, deptList.get(1)));
 		empList.add(new Employee(3, "이태훈", titleList.get(1), new Employee(1, "신사숙녀"), 3500000, deptList.get(1)));
 		
+		bookList.add(new BookInfo(40001, "the elements of statistical learninjg", new BookKind(1, "수학")));
+		bookList.add(new BookInfo(40002, "Computer vision : a modern approach", new BookKind(2, "컴퓨터")));
+		bookList.add(new BookInfo(40003, "MATLAB for engineers", new BookKind(3, "전자")));
 		
 		initialize();
 		
@@ -110,6 +122,9 @@ public class JTableEx extends JFrame {
 		contentPane.add(pTable4);
 		pTable4.setLayout(new BorderLayout(0, 0));
 		
+		pTable6 = new JPanel();
+		contentPane.add(pTable6);
+		pTable6.setLayout(new BorderLayout(0, 0));
 		
 		
 		// CustomTable2 를 수정 해줘야함
@@ -141,9 +156,9 @@ public class JTableEx extends JFrame {
 		pEmpTable5.setList(empList);
 		pTable5.add(pEmpTable5, BorderLayout.CENTER);
 		
-		pTable6 = new JPanel();
-		contentPane.add(pTable6);
-		pTable6.setLayout(new BorderLayout(0, 0));
+		pBookTable6 = new BookTablePanel();
+		pBookTable6.setList(bookList);
+		pTable6.add(pBookTable6, BorderLayout.CENTER);
 	}
 	
 	
