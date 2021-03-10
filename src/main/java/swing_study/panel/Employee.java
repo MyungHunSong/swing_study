@@ -18,6 +18,14 @@ public class Employee {
 	public Employee(Employee manager) {
 		this.manager = manager;
 	}
+	
+	
+
+
+	public Employee(int empNo, String empName) {
+		this.empNo = empNo;
+		this.empName = empName;
+	}
 
 
 

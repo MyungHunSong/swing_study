@@ -14,6 +14,7 @@ import swing_study.component.JComBoBoxEx1;
 import swing_study.component.JComBoBoxEx2;
 import swing_study.component.JComBoBoxEx3;
 import swing_study.component.JLableEx;
+import swing_study.component.JLableEx2;
 import swing_study.component.JListEx;
 import swing_study.component.JListEx2;
 import swing_study.component.JListEx3;
@@ -21,6 +22,7 @@ import swing_study.component.JRadioButtonEx;
 import swing_study.component.JSliderEx;
 import swing_study.component.JSpinner;
 import swing_study.component.JTabbedPaneEx;
+import swing_study.component.JTableEx;
 import swing_study.component.JTextFieldAreaEx;
 import swing_study.component.JcheckBoxCustom;
 import swing_study.component.JcheckBoxEx;
@@ -75,6 +77,8 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btn16;
 	private JPanel pTabPane;
 	private JButton btn17;
+	private JButton btn0402;
+	private JButton btn18;
 
 	
 	public static void main(String[] args) {
@@ -148,6 +152,10 @@ public class SwingMain extends JFrame implements ActionListener {
 		
 		btn05 = new JButton("andJaintoggle");
 		btn05.addActionListener(this);
+		
+		btn0402 = new JButton("JLable_side");
+		btn0402.addActionListener(this);
+		pCompenent.add(btn0402);
 		pCompenent.add(btn05);
 		
 		pCheck = new JPanel();
@@ -228,14 +236,26 @@ public class SwingMain extends JFrame implements ActionListener {
 		pSpinner.add(btn16, BorderLayout.CENTER);
 		
 		pTabPane = new JPanel();
+		pTabPane.setBorder(new TitledBorder(null, "TabPane&JTable", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		contentPane.add(pTabPane);
 		
 		btn17 = new JButton("텝드페인 예");
 		btn17.addActionListener(this);
+		pTabPane.setLayout(new GridLayout(0, 1, 0, 0));
 		pTabPane.add(btn17);
+		
+		btn18 = new JButton("J테이블 예");
+		btn18.addActionListener(this);
+		pTabPane.add(btn18);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn18) {
+			actionPerformedBtn18(e);
+		}
+		if (e.getSource() == btn0402) {
+			actionPerformedBtn0402(e);
+		}
 		if (e.getSource() == btn17) {
 			actionPerformedBtn17(e);
 		}
@@ -434,6 +454,17 @@ public class SwingMain extends JFrame implements ActionListener {
 	// JTabPane
 	protected void actionPerformedBtn17(ActionEvent e) {
 		JTabbedPaneEx frame = new JTabbedPaneEx();
+		frame.setVisible(true);
+	}
+	
+	//JLableEx2
+	protected void actionPerformedBtn0402(ActionEvent e) {
+		JLableEx2 frame = new JLableEx2();
+		frame.setVisible(true);
+	}
+	// JTableEx
+	protected void actionPerformedBtn18(ActionEvent e) {
+		JTableEx frame = new JTableEx();
 		frame.setVisible(true);
 	}
 }
