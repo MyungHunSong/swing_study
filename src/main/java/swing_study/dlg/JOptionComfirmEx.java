@@ -65,9 +65,7 @@ public class JOptionComfirmEx extends JFrame implements ActionListener {
 				JOptionPane.WARNING_MESSAGE,
 				icon2);
 		
-		
-		
-		
+
 		if(res == JOptionPane.YES_OPTION) {
 			lblRes.setText("야스!");
 		}
